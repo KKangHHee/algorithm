@@ -1,0 +1,3 @@
+print("high speed rail" 
+      if int(input()) <= int(input()) 
+      else "flight")
