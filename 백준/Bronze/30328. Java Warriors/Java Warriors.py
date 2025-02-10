@@ -1,1 +1,1 @@
-print(int(input())*4000);
+print(int(input())*4000)
