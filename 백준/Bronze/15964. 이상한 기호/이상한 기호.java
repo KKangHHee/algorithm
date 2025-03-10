@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,7 +7,7 @@ public class Main {
         int N = scan.nextInt();
         int M = scan.nextInt();
 
-        int result = (N + M) * (N - M);
+        long result = (long) Math.pow(N, 2) - (long) Math.pow(M, 2);
         System.out.println(result);
     }
 }
