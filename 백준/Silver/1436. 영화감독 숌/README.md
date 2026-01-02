@@ -30,3 +30,86 @@
 
  <p>첫째 줄에 N번째 영화의 제목에 들어간 수를 출력한다.</p>
 
+ ---
+ ## 📍 풀이 코드 (Mine)
+
+```java
+// 나의 풀이 코드 here
+// 입력1) n(~10,000)
+// 규칙) 제목: "세상의 종말 x", 이때 x는 666이 들어가는 n번째로 작은 수
+// 출력1) x를 출력
+
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException{
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+            int n = Integer.parseInt(br.readLine());
+            
+            int count = 0; // 완탐 기준
+            int x = 666; // 시작값
+            
+            while(true){
+                if(String.valueOf(x).contains("666")){
+                    count++;
+                    if(count == n){
+                        System.out.print(x);
+                        break;
+                    }
+                }
+                x++;
+            }
+        }
+    }
+}
+
+```
+
+### 🎯 정답 코드 / 개선된 코드
+
+```java
+// 베스트 풀이 or 리팩토링 코드
+
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            int n = Integer.parseInt(br.readLine());
+
+            int count = 0;
+            int x = 666;
+
+            while (true) {
+                // 숫자 연산을 통해 666 포함 여부 확인 (문자열 변환 X)
+                if (has666(x)) {
+                    count++;
+                    if (count == n) {
+                        System.out.print(x);
+                        break;
+                    }
+                }
+                x++;
+            }
+        }
+    }
+
+    // 숫자를 10으로 나눠가며 연속된 6이 3번 나오는지 체크
+    private static boolean has666(int num) {
+        int continuousSix = 0;
+        while (num > 0) {
+            if (num % 10 == 6) {
+                continuousSix++;
+                if (continuousSix == 3) return true;
+            } else {
+                continuousSix = 0; // 연속성이 깨지면 초기화
+            }
+            num /= 10;
+        }
+        return false;
+    }
+}
+```
+
+---
+
