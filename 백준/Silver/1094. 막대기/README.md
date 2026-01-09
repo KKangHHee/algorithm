@@ -40,3 +40,59 @@
 
  <p>문제의 과정을 거친다면, 몇 개의 막대를 풀로 붙여서 Xcm를 만들 수 있는지 출력한다.</p>
 
+ --
+ ## 📍 풀이 코드 (Mine)
+
+```java
+// 나의 풀이 코드 here
+// 알고리즘) 64, 32, 16, 8, 4, 2, 1
+// 규칙)
+// 입력)
+// 츨력)
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException{
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+            int x = Integer.parseInt(br.readLine());
+            int count = 0;
+            while(x>0){
+                if((x&1)==1) count++;
+                x >>=1;
+            }
+            System.out.print(count);
+        }
+    }
+}
+```
+
+### 🎯 정답 코드 / 개선된 코드
+
+```java
+// 베스트 풀이 or 리팩토링 코드
+// 나의 풀이 코드 here
+// 알고리즘) 64, 32, 16, 8, 4, 2, 1
+// 규칙)
+// 입력)
+// 츨력)
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) throws IOException{
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+            int x = Integer.parseInt(br.readLine());
+						int count = Integer.bitCount(x);
+            System.out.print(count);
+        }
+    }
+}
+
+```
+
+---
+ 
+
